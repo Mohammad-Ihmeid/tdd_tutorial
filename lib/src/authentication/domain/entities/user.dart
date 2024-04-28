@@ -16,3 +16,34 @@ class User extends Equatable {
   @override
   List<Object> get props => [id];
 }
+
+
+/*
+
+class User {
+  final int id;
+  final String createdAt;
+  final String name;
+  final String avatar;
+
+  User({
+    required this.id,
+    required this.createdAt,
+    required this.name,
+    required this.avatar,
+  });
+  
+  @override
+  bool operator==(other){
+    return identical(this, other) ||
+      other is User &&
+      other.runtimeType == runtimeType &&
+      other.id == id &&
+      other.name == name;
+  }
+  
+  @override
+  int get hashCode => id.hashCode ^ name.hashCode;
+}
+
+ */
