@@ -28,16 +28,16 @@ class AuthRemoteDataSrcImpl implements AuthenticationRemoteDataSource {
     // 2. check to make sure that it "THROWS A CUSTOM EXCEPTION" with the
     // right message when status code is the bad one
     try {
-      final response = await _client.post(
-        Uri.https(kBaseUrl, kCreateUserEndpoin),
-        body: jsonEncode(
-          {
-            'createdAt': params.createdAt,
-            'name': params.name,
-            'avatar': params.avatar
-          },
-        ),
-      );
+      final response =
+          await _client.post(Uri.https(kBaseUrl, kCreateUserEndpoin),
+              body: jsonEncode(
+                {
+                  'createdAt': params.createdAt,
+                  'name': params.name,
+                  'avatar': params.avatar
+                },
+              ),
+              headers: {'Content-Type': 'application/json'});
 
       if (response.statusCode != 200 && response.statusCode != 201) {
         throw ServerException(
